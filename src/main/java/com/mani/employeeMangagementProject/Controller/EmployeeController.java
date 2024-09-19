@@ -1,12 +1,9 @@
-package com.mani.EmployeeMangagementProject.Controller;
+package com.mani.employeeMangagementProject.Controller;
 
-import com.mani.EmployeeMangagementProject.Entity.Employee;
-import com.mani.EmployeeMangagementProject.Exception.IdNotFoundException;
-import com.mani.EmployeeMangagementProject.Service.EmployeeService;
-import jakarta.persistence.GeneratedValue;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mani.employeeMangagementProject.Entity.Employee;
+import com.mani.employeeMangagementProject.Exception.IdNotFoundException;
+import com.mani.employeeMangagementProject.Service.EmployeeService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +13,10 @@ import java.util.Optional;
 @RestController
 @CrossOrigin("*")
 public class EmployeeController {
-    @Autowired
-    EmployeeService serv;
-
+    private  final EmployeeService serv;
+    public EmployeeController(EmployeeService serv) {
+        this.serv = serv;
+    }
     @PostMapping("/add")
     public ResponseEntity<Employee> addEmp(@RequestBody  Employee emp) throws Exception {
         Employee emps=serv.addEmp(emp);
@@ -32,12 +30,11 @@ public class EmployeeController {
 
     @PutMapping("/puts/{id}")
             public ResponseEntity<Employee> updateEmp(@PathVariable long id,@RequestBody Employee emp) throws IdNotFoundException {
-        Employee em=serv.UpdateEmp(id,emp);
+        Employee em=serv.updateEmp(id,emp);
         return ResponseEntity.status(HttpStatus.OK).body(em);
     }
-
     @DeleteMapping("/deli/{id}")
-    public ResponseEntity<String> DeleteEmp(@PathVariable long id){
+    public ResponseEntity<String> deleteEmp(@PathVariable long id){
         serv.deleteEmp(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body("Employee Deleted");
     }
@@ -46,4 +43,6 @@ public class EmployeeController {
         List<Employee> emps=serv.getAllEmp();
         return ResponseEntity.status(HttpStatus.OK).body(emps);
     }
+
+
 }

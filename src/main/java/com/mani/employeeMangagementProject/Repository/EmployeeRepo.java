@@ -1,6 +1,6 @@
-package com.mani.EmployeeMangagementProject.Repository;
+package com.mani.employeeMangagementProject.Repository;
 
-import com.mani.EmployeeMangagementProject.Entity.Employee;
+import com.mani.employeeMangagementProject.Entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmployeeRepo extends JpaRepository<Employee,Long> {

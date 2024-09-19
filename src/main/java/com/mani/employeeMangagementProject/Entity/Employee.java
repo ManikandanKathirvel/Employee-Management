@@ -1,4 +1,4 @@
-package com.mani.EmployeeMangagementProject.Entity;
+package com.mani.employeeMangagementProject.Entity;
 
 import jakarta.persistence.*;
 
@@ -21,8 +21,17 @@ public class Employee {
     private int yearOfJoining;
 
     private double salary;
+    private int bonus;
 
-    public Employee(long id, String name, int age, String gender, String department, int yearOfJoining, double salary)
+    public int getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+    }
+
+    public Employee(long id, String name, int age, String gender, String department, int yearOfJoining, double salary, int bonus)
     {
         this.id = id;
         this.name = name;
@@ -31,7 +40,8 @@ public class Employee {
         this.department = department;
         this.yearOfJoining = yearOfJoining;
         this.salary = salary;
-    }
+        this.bonus = bonus;
+    } //NOSONAR
     public Employee(){}
 
     public long getId() {

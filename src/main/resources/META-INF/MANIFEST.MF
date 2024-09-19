@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: com.mani.EmployeeMangagementProject.EmployeeMangagementProje
+Main-Class: com.mani.employeeMangagementProject.EmployeeMangagementProje
  ctApplication
 

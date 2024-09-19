@@ -1,7 +1,6 @@
-package com.mani.EmployeeMangagementProject.Exception;
+package com.mani.employeeMangagementProject.Exception;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

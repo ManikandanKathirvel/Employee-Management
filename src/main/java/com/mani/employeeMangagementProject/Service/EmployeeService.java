@@ -1,9 +1,8 @@
-package com.mani.EmployeeMangagementProject.Service;
+package com.mani.employeeMangagementProject.Service;
 
-import com.mani.EmployeeMangagementProject.Entity.Employee;
-import com.mani.EmployeeMangagementProject.Exception.IdNotFoundException;
-import com.mani.EmployeeMangagementProject.Repository.EmployeeRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mani.employeeMangagementProject.Entity.Employee;
+import com.mani.employeeMangagementProject.Exception.IdNotFoundException;
+import com.mani.employeeMangagementProject.Repository.EmployeeRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,11 +10,15 @@ import java.util.Optional;
 
 @Service
 public class EmployeeService {
-    @Autowired
-    EmployeeRepo repo;
+
+    private final EmployeeRepo repo;
+
+    public EmployeeService(EmployeeRepo repo) {
+        this.repo = repo;
+    }
 
     public Employee addEmp(Employee emp) throws Exception {
-        if(emp.equals(null)) {
+        if(emp==null) {
             throw new Exception("Employee is null");
         }
         else{
@@ -33,10 +36,10 @@ public class EmployeeService {
         }
     }
 
-    public Employee UpdateEmp(long id, Employee emp) throws IdNotFoundException {
+    public Employee updateEmp(long id, Employee emp) throws IdNotFoundException {
         Optional<Employee> em=repo.findById(id);
-        Employee e=em.get();
         if(em.isPresent()){
+            Employee e=em.get();
             e.setName(emp.getName());
             e.setAge(emp.getAge());
             e.setGender(emp.getGender());

@@ -1,4 +1,4 @@
-package com.mani.EmployeeMangagementProject;
+package com.mani.employeeMangagementProject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -6,8 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class EmployeeMangagementProjectApplicationTests {
 
-	@Test
-	void contextLoads() {
+	@Test //NOSONAR
+	void   contextLoads() {
 	}
+
+
 
 }
